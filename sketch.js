@@ -2,6 +2,12 @@ let frog;
 let cars = [];
 let logs = [];
 let grid = 50;
+let img;
+
+function preload(){
+img = loadImage('images/tp.png');
+
+}
 
 function resetGame() {
   frog = new Frog(width / 2 - grid / 2, height - grid, grid);
@@ -11,6 +17,7 @@ function resetGame() {
 function setup() {
   createCanvas(500, 500);
   resetGame();
+
 
   let index = 0;
 
@@ -33,6 +40,7 @@ function setup() {
     let x = i * 150 + 25;
     cars[index] = new Car(x, height - grid * 4, grid, grid, 1.2);
     index++;
+
   }
 
   // ROW 5
@@ -59,9 +67,12 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(255,192,203);
+
+
+
   // Safety lines
-  fill(255, 100);
+  fill(255,245,238);
   rect(0, 0, width, grid * 2);
   rect(0, height - grid, width, grid);
   rect(0, height - grid * 5, width, grid);
@@ -72,6 +83,9 @@ function draw() {
 
     if (frog.intersects(cars[i])) {
       resetGame();
+
+
+
     }
   }
 
@@ -98,6 +112,13 @@ function draw() {
 
   frog.update();
   frog.show();
+
+
+fill(65,105,225);
+  textSize(42);
+  text('Shelter in Place', 108, 65);
+
+
 }
 
 function keyPressed() {

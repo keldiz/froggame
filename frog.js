@@ -19,7 +19,7 @@ update() {
 
 show() {
   fill(0, 255, 0, 200);
-  rect(this.x, this.y, this.width, this.width);
+  image(img, this.x, this.y, this.width, this.width);
 }
 
 move(xdir, ydir) {
